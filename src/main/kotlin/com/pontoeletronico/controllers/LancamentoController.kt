@@ -46,7 +46,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         return ResponseEntity.ok(response)
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     fun listarPorId(@PathVariable("id") id: String): ResponseEntity<Response<LancamentoDto>> {
         val response: Response<LancamentoDto> = Response<LancamentoDto>()
         val lancamento: Lancamento? = lancamentoService.buscarPorId(id)
@@ -60,7 +60,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         return ResponseEntity.ok(response)
     }
 
-    @GetMapping(value = "/funcionario/{funcionarioId}")
+    @GetMapping("/funcionario/{funcionarioId}")
     fun listarPorFuncionarioId(@PathVariable("funcionarioId") funcionarioId: String,
                                @RequestParam(value = "pag", defaultValue = "0") pag: Int,
                                @RequestParam(value = "ord", defaultValue = "id") ord: String,
@@ -80,7 +80,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         return ResponseEntity.ok(response)
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping("/{id}")
     fun atualizar(@PathVariable("id") id: String, @Valid @RequestBody lancamentoDto: LancamentoDto,
                   result: BindingResult): ResponseEntity<Response<LancamentoDto>> {
 
@@ -99,7 +99,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         return ResponseEntity.ok(response)
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
     fun remover(@PathVariable("id") id: String): ResponseEntity<Response<String>> {
 

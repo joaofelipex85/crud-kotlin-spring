@@ -40,7 +40,7 @@ class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository,
         val funcionario: Funcionario = cadastroPFComponent.dtoToFuncionario(cadastroPFDto, empresa!!)
 
         persistir(funcionario)
-        response.data = cadastroPFComponent.funcionarioToCadastroPFDto(funcionario, empresa!!)
+        response.data = cadastroPFComponent.funcionarioToCadastroPFDto(funcionario, empresa)
 
         return ResponseEntity.ok(response)
     }

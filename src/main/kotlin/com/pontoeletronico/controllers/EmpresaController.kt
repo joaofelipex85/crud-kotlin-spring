@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/empresas")
 class EmpresaController(val empresaService: EmpresaService) {
 
-    @GetMapping(value = "/cnpj/{cnpj}")
+    @GetMapping("/cnpj/{cnpj}")
     fun buscarPorCnpj(@PathVariable("cnpj") cnpj: String): ResponseEntity<Response<EmpresaDto>> {
         val response: Response<EmpresaDto> = Response<EmpresaDto>()
         val empresa: Empresa? = empresaService.buscarPorCnpj(cnpj)
