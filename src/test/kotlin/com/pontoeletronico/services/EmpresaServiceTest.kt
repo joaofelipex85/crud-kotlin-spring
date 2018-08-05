@@ -38,7 +38,7 @@ class EmpresaServiceTest {
 
     @Test
     fun testPersistirEmpresa() {
-        val empresa: Empresa? = empresaService?.persistir(empresa())
+        val empresa: Empresa? = empresaService?.save(empresa())
         Assert.assertNotNull(empresa)
     }
 

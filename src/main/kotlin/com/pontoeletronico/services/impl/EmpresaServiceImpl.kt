@@ -10,7 +10,6 @@ class EmpresaServiceImpl(val empresaRepository: EmpresaRepository) : EmpresaServ
 
     override fun buscarPorCnpj(cnpj: String): Empresa? = empresaRepository.findByCnpj(cnpj)
 
-    override fun persistir(empresa: Empresa): Empresa = empresaRepository.save(empresa)
-
+    override fun save(empresa: Empresa): Empresa = empresaRepository.save(empresa)
 
 }

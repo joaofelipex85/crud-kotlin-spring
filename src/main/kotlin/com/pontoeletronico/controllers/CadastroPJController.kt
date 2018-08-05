@@ -34,7 +34,7 @@ class CadastroPJController(val empresaService: EmpresaService,
         }
 
         val empresa: Empresa = converterDtoParaEmpresa(cadastroPJDto)
-        empresaService.persistir(empresa)
+        empresaService.save(empresa)
 
         val funcionario: Funcionario = converterDtoParaFuncionario(cadastroPJDto, empresa)
         funcionarioService.persistir(funcionario)

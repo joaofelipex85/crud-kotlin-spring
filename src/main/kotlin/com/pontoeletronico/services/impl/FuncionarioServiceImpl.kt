@@ -27,6 +27,7 @@ class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository,
     override fun buscarPorId(id: String): Funcionario? = funcionarioRepository.findOne(id)
 
     override fun cadastra(cadastroPFDto: CadastroPFDto, result: BindingResult): ResponseEntity<Response<CadastroPFDto>> {
+
         val response: Response<CadastroPFDto> = Response<CadastroPFDto>()
 
         val empresa: Empresa? = empresaService.buscarPorCnpj(cadastroPFDto.cnpj)
@@ -43,6 +44,7 @@ class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository,
         response.data = cadastroPFComponent.funcionarioToCadastroPFDto(funcionario, empresa)
 
         return ResponseEntity.ok(response)
+
     }
 
     private fun validarDadosExistentes(cadastroPFDto: CadastroPFDto, empresa: Empresa?,
