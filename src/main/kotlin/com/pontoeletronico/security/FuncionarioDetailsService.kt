@@ -11,13 +11,19 @@ import org.springframework.stereotype.Service
 class FuncionarioDetailsService(val funcionarioService: FuncionarioService) : UserDetailsService {
 
     override fun loadUserByUsername(username: String?): UserDetails {
-        if (username != null) {
+
+        username?.let { user ->
+
             val funcionario: Funcionario? = funcionarioService.buscarPorEmail(username)
-            if (funcionario != null) {
+
+            funcionario?.let {
                 return FuncionarioPrincipal(funcionario)
             }
+
         }
+
         throw UsernameNotFoundException(username)
+
     }
 
 }
